@@ -19,8 +19,9 @@ public class CandidateController {
 		super();
 		this.service = service;
 	}
+
 	@GetMapping
-	public List<Candidate> getAllCandidates(){
+	public List<Candidate> getAllCandidates() {
 		return service.getAllCandidates();
 	}
 }
