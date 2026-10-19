@@ -19,7 +19,7 @@ public class JobController {
 		super();
 		this.jobService = jobService;
 	}
-	
+	 
 	@GetMapping
 	public List<Job> getAllJob()
 	{
