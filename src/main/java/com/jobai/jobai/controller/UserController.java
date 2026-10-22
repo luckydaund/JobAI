@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.jobai.jobai.dto.UserResponseDTO;
 import com.jobai.jobai.entity.User;
 import com.jobai.jobai.service.UserService;
 
@@ -20,7 +21,7 @@ public class UserController {
 	    }
 
 	    @GetMapping
-	    public List<User> getAllUsers() {
+	    public List<UserResponseDTO> getAllUsers() {
 	        return userService.getAllUsers();
 	    }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.jobai.jobai.dto.UserResponseDTO;
 import com.jobai.jobai.entity.User;
 import com.jobai.jobai.repository.UserRepository;
 
@@ -16,7 +17,17 @@ public class UserService {
 	        this.userRepository = userRepository;
 	    }
 
-	    public List<User> getAllUsers() {
-	        return userRepository.findAll();
+	    public List<UserResponseDTO> getAllUsers() {
+	        List<User> users =  userRepository.findAll();
+	        
+	         return users.stream()
+	        		 .map(user -> new UserResponseDTO(
+	        				 user.getUserId(),
+	        				 user.getName(),
+	        				 user.getEmail(),
+	        				 user.getPhone(),
+	        				 user.getStatus(),
+	        				 user.getRole().getRoleName()))
+	        		 .toList();
 	    }
 }
